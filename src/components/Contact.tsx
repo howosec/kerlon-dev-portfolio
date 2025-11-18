@@ -1,150 +1,289 @@
-import { motion, useInView } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
-import { useRef } from 'react';
-import { Button } from '@/components/ui/button';
+import { Mail, Phone, MapPin, Github, Instagram } from 'lucide-react';
+import { useRef, useEffect, useState } from 'react';
 
 const Contact = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [isVisible, setIsVisible] = useState(false);
 
-  const contactInfo = [
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  const contactMethods = [
     {
       icon: Mail,
       label: 'Email',
       value: 'kerlon.amaral1@gmail.com',
       href: 'mailto:kerlon.amaral1@gmail.com',
+      gradient: 'from-blue-900/40 to-purple-900/30',
+      glow: 'hover:shadow-blue-500/20',
+      color: 'text-blue-400',
+      borderColor: 'border-blue-800/30',
     },
     {
-      icon: Phone,
-      label: 'Telefone',
-      value: '+55 (31) 98204-4380',
-      href: 'tel:+5531982044380',
+      icon: Github,
+      label: 'GitHub',
+      value: '@RobotEby',
+      href: 'https://github.com/RobotEby',
+      gradient: 'from-slate-900/40 to-gray-900/30',
+      glow: 'hover:shadow-gray-500/20',
+      color: 'text-gray-300',
+      borderColor: 'border-gray-700/30',
     },
     {
-      icon: MapPin,
-      label: 'Localização',
-      value: 'Belo Horizonte, MG',
+      icon: Instagram,
+      label: 'Instagram',
+      value: '@kerlonsl._',
+      href: 'https://www.instagram.com/kerlonsl._',
+      gradient: 'from-rose-900/40 to-pink-900/30',
+      glow: 'hover:shadow-rose-500/20',
+      color: 'text-rose-400',
+      borderColor: 'border-rose-800/30',
     },
   ];
 
-  const generateStars = (count: number) => {
-    return Array.from({ length: count }).map((_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 2 + 1,
-      opacity: Math.random() * 0.7 + 0.3,
-      delay: Math.random() * 5,
-    }));
-  };
-
-  const stars = generateStars(150);
-
   return (
     <section
-      id="contact"
-      className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-24 relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950"
+      id="Contato"
+      className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-24 relative overflow-hidden bg-gradient-to-br from-gray-950 via-black to-gray-900"
       ref={ref}
     >
-      <div className="absolute inset-0">
-        {stars.map((star) => (
-          <div
-            key={star.id}
-            className="absolute rounded-full bg-white animate-pulse"
-            style={{
-              left: `${star.x}%`,
-              top: `${star.y}%`,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-              opacity: star.opacity,
-              animationDelay: `${star.delay}s`,
-              animationDuration: `${Math.random() * 3 + 2}s`,
-            }}
-          />
-        ))}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
 
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-900/10 to-purple-900/10" />
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            animation: 'gridMove 20s linear infinite',
+          }}
+        />
 
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-blue-400/30 rounded-full animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${10 + Math.random() * 10}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-900/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl animate-pulse-slower" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-emerald-900/5 rounded-full blur-3xl animate-pulse-delayed" />
       </div>
 
-      <div className="max-w-4xl w-full relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+      <div className="max-w-6xl w-full relative z-10">
+        <div
+          className={`text-center mb-20 transition-all duration-1000 transform ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
         >
-          <p className="text-sm text-blue-300 mb-4 uppercase tracking-wider">CONTATO</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Entre em Contato</h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto mb-6" />
-          <p className="text-lg text-blue-100 max-w-xl mx-auto">
-            Disponível para novos projetos e oportunidades profissionais.
+          <p className="text-sm text-gray-400 mb-4 uppercase tracking-[0.3em] font-medium">
+            Vamos nos conectar
           </p>
-        </motion.div>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Sinta-se à vontade para entrar em contato. Estou sempre aberto a discutir novos projetos
+            e oportunidades.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {contactInfo.map((info, index) => {
-            const Icon = info.icon;
+        <div className="flex flex-wrap justify-center gap-6">
+          {contactMethods.map((contact, index) => {
+            const Icon = contact.icon;
+            const isClickable = contact.href !== null;
+            const Component = isClickable ? 'a' : 'div';
+
             return (
-              <motion.div
-                key={info.label}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="text-center space-y-4 backdrop-blur-sm bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-blue-500/30 transition-all duration-300 min-h-[180px] flex flex-col justify-center"
+              <Component
+                key={contact.label}
+                href={contact.href || undefined}
+                target={contact.href?.startsWith('http') ? '_blank' : undefined}
+                rel={contact.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className={`
+                  group relative p-6 rounded-2xl bg-gradient-to-br ${contact.gradient}
+                  border ${contact.borderColor} backdrop-blur-xl
+                  transition-all duration-700 ease-out
+                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+                  ${
+                    isClickable
+                      ? `hover:scale-105 hover:shadow-2xl ${contact.glow} hover:border-opacity-60 cursor-pointer transform-gpu`
+                      : ''
+                  }
+                  flex-1 min-w-[280px] max-w-[320px] h-48
+                  flex flex-col justify-between
+                  overflow-hidden
+                  before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/5 before:to-transparent before:translate-x-[-100%] before:transition-transform before:duration-1000
+                  hover:before:translate-x-[100%]
+                `}
+                style={{
+                  animationDelay: `${index * 150}ms`,
+                  transitionDelay: `${index * 150}ms`,
+                }}
               >
-                <div className="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto border border-blue-500/20 mb-2">
-                  <Icon className="w-6 h-6 text-blue-400" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/60 rounded-2xl" />
+
+                <div className="flex items-center gap-4 mb-4 relative z-10">
+                  <div
+                    className={`
+                    w-12 h-12 rounded-xl bg-black/40 backdrop-blur-md
+                    flex items-center justify-center
+                    transition-all duration-500 ease-out
+                    border ${contact.borderColor}
+                    ${
+                      isClickable
+                        ? 'group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg'
+                        : ''
+                    }
+                    relative overflow-hidden
+                    before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300
+                    group-hover:before:opacity-100
+                  `}
+                  >
+                    <Icon
+                      className={`w-6 h-6 ${contact.color} transition-all duration-300 group-hover:scale-110`}
+                    />
+                  </div>
+                  <p className="text-sm font-medium text-gray-400 uppercase tracking-wider transition-colors duration-300 group-hover:text-gray-300">
+                    {contact.label}
+                  </p>
                 </div>
-                <div className="flex-1 flex flex-col justify-center">
-                  <h3 className="font-semibold text-white mb-2 text-sm">{info.label}</h3>
-                  {info.href ? (
-                    <a
-                      href={info.href}
-                      className="text-blue-200 hover:text-white transition-colors duration-300 text-xs md:text-sm break-all px-2"
-                      style={{ wordBreak: 'break-word' }}
-                    >
-                      {info.value}
-                    </a>
-                  ) : (
-                    <p className="text-blue-200 text-xs md:text-sm">{info.value}</p>
-                  )}
+
+                <div className="flex-1 flex items-center relative z-10">
+                  <p
+                    className={`
+                    text-lg font-semibold text-gray-200
+                    transition-all duration-500
+                    ${isClickable ? 'group-hover:text-white group-hover:translate-x-1' : ''}
+                    break-all
+                    relative
+                    after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-current after:to-transparent after:transition-all after:duration-500
+                    group-hover:after:w-full
+                  `}
+                  >
+                    {contact.value}
+                  </p>
                 </div>
-              </motion.div>
+
+                {isClickable && (
+                  <div className="flex justify-between items-center mt-4 relative z-10">
+                    <div className="flex space-x-1">
+                      <div className="w-1 h-1 rounded-full bg-current opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100 group-hover:animate-ping" />
+                      <div className="w-1 h-1 rounded-full bg-current opacity-0 group-hover:opacity-100 transition-all duration-300 delay-200 group-hover:animate-ping" />
+                      <div className="w-1 h-1 rounded-full bg-current opacity-0 group-hover:opacity-100 transition-all duration-300 delay-300 group-hover:animate-ping" />
+                    </div>
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                      <svg
+                        className="w-5 h-5 text-current animate-bounce-horizontal"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </Component>
             );
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12 space-y-6"
-        >
-          <a href="mailto:kerlon.amaral1@gmail.com">
-            <Button
-              size="lg"
-              className="gap-3 px-8 bg-blue-600 hover:bg-blue-500 text-white border-blue-400/20 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
-            >
-              <Mail className="w-4 h-4" />
-              Iniciar Conversa
-            </Button>
-          </a>
-
-          <div className="flex justify-center gap-4 pt-4">
-            <a
-              href="https://github.com/RobotEby"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-slate-900 border border-white/20 hover:border-white backdrop-blur-sm"
-              aria-label="GitHub"
-            >
-              <Github className="w-4 h-4" />
-            </a>
-          </div>
-        </motion.div>
+        <div
+          className={`
+            mt-16 text-center transition-all duration-1000 delay-700
+            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+          `}
+        ></div>
       </div>
+
+      <style>{`
+        @keyframes gridMove {
+          0% {
+            transform: translateY(0) translateX(0);
+          }
+          100% {
+            transform: translateY(50px) translateX(50px);
+          }
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0) rotate(0deg);
+          }
+          33% {
+            transform: translateY(-20px) rotate(120deg);
+          }
+          66% {
+            transform: translateY(10px) rotate(240deg);
+          }
+        }
+
+        @keyframes bounce-horizontal {
+          0%,
+          100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(3px);
+          }
+        }
+
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-bounce-horizontal {
+          animation: bounce-horizontal 1s infinite;
+        }
+
+        .animate-pulse-slow {
+          animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .animate-pulse-slower {
+          animation: pulse 12s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .animate-pulse-delayed {
+          animation: pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation-delay: 2s;
+        }
+      `}</style>
     </section>
   );
 };

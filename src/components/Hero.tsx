@@ -9,10 +9,10 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const words = [
-    'Desenvolvedor Fullstack',
+    'Desenvolvedor Full Stack',
     'Desenvolvedor UI/UX',
-    'Entusiasta da Web',
-    'Desenvolvedor React',
+    'Engenheiro de DevOps',
+    'Especialista em CI/CD e Automação',
   ];
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>Belo Horizonte</span>
+                <span>Minas Gerais, Belo Horizonte</span>
               </div>
             </div>
 

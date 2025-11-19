@@ -10,6 +10,15 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'CBAAP',
+      description:
+        'A CBAAP tem como foco transformar o marketing digital para pequenos negócios por meio de um modelo consultivo inovador. Através de reuniões estratégicas, a agência busca entender profundamente as necessidades e desejos de cada cliente. Ao combinar esse conhecimento com táticas avançadas de anúncios pagos, a CBAAP propõe soluções que não só atraem mais clientes, mas também potencializam o crescimento sustentável do negócio.',
+      image: '/cbaap.png',
+      technologies: ['vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
+      github: 'https://github.com/RobotEby/cbaap-369789',
+      demo: 'https://cbaap.com.br',
+    },
+    {
       title: 'Aplicativo de Receitas',
       description:
         'Um aplicativo moderno de receitas desenvolvido em React, que permite explorar, pesquisar, adicionar aos favoritos e acompanhar o progresso de receitas de pratos e bebidas.',

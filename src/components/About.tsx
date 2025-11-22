@@ -39,9 +39,8 @@ const About = () => {
           className="text-center mb-12"
         >
           <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wider">Sobre mim</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Construindo a minha história</h2>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">Experiências</h2>
-          <div className="w-24 h-1 bg-accent mx-auto" />
+          <h2 className="text-4xl md:text-5xl font-medium mb-4">Construindo a minha história</h2>
+          <h2 className="text-4xl md:text-4xl font-medium mb-8">Experiências</h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -79,7 +78,7 @@ const About = () => {
               limpo e significativo.
             </p>
 
-            <h3 className="text-2xl font-bold pt-4">Tech Stack & Formação</h3>
+            <h3 className="text-2xl font-semibold pt-4">Tech Stack & Formação</h3>
             <div className="grid md:grid-cols-3 gap-4">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
@@ -92,7 +91,7 @@ const About = () => {
                     className="p-6 rounded-xl border-2 border-border hover:border-accent transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
                   >
                     <Icon className="w-8 h-8 mb-4 text-accent" />
-                    <h4 className="font-bold mb-2">{stat.title}</h4>
+                    <h4 className="font-semibold mb-2">{stat.title}</h4>
                     <p className="text-sm text-muted-foreground">{stat.description}</p>
                   </motion.div>
                 );

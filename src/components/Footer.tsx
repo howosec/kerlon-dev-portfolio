@@ -17,7 +17,7 @@ const Footer = () => {
     <footer className="bg-primary text-primary-foreground py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center space-y-8">
-          <h2 className="text-3xl font-bold">RobotEby</h2>
+          <h2 className="text-3xl font-medium">Kerlon Amaral</h2>
 
           <nav>
             <ul className="flex flex-wrap justify-center gap-8">
@@ -25,7 +25,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="hover:text-secondary transition-colors duration-300 font-medium"
+                    className="hover:text-secondary transition-colors duration-300"
                   >
                     {link.label}
                   </a>
@@ -53,7 +53,9 @@ const Footer = () => {
           </div>
 
           <div className="pt-8 border-t border-primary-foreground/20">
-            <p className="text-sm text-primary-foreground/70">&copy; {currentYear} RobotEby.</p>
+            <p className="text-sm text-primary-foreground/70">
+              &copy; {currentYear} made with 🤍 by RobotEby.
+            </p>
           </div>
         </div>
       </div>

@@ -47,8 +47,7 @@ const Services = () => {
           className="text-center mb-16"
         >
           <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wider">SERVIÇOS</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Meus recursos e serviços</h2>
-          <div className="w-24 h-1 bg-accent mx-auto" />
+          <h2 className="text-4xl md:text-4xl mb-4 font-medium">Meus recursos e serviços</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -68,7 +67,7 @@ const Services = () => {
                   <div className="mb-6 inline-block">
                     <Icon className="w-16 h-16 text-accent group-hover:text-accent-foreground transition-colors duration-500" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 group-hover:text-accent-foreground transition-colors duration-500">
+                  <h3 className="text-xl font-semibold mb-4 group-hover:text-accent-foreground transition-colors duration-500">
                     {service.title}
                   </h3>
                   <p className="text-sm text-muted-foreground group-hover:text-accent-foreground/90 transition-colors duration-500">

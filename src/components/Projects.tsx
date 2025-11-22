@@ -68,8 +68,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wider">PROJETOS</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Trabalho em destaque</h2>
-          <div className="w-24 h-1 bg-accent mx-auto mb-6" />
+          <h2 className="text-4xl md:text-4xl font-medium mb-4">Trabalho em destaque</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {' '}
             Uma vitrine dos meus projetos recentes, demonstrando experiência em desenvolvimento

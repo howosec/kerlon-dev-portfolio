@@ -107,7 +107,7 @@ const Contact = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="text-sm text-gray-400 mb-4 uppercase tracking-[0.3em] font-medium">
+          <p className="text-sm text-gray-400 mb-4 md:text-2xl uppercase tracking-[0.3em] font-medium">
             Vamos nos conectar
           </p>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">

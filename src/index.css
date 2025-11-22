@@ -22,7 +22,7 @@
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 237 47% 61%;
+    --accent: 220 17% 17%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -106,7 +106,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
-    color: 220, 17%, 17%;
+    color: #242933;
   }
 
   html {

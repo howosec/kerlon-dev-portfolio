@@ -47,10 +47,28 @@ const Projects = () => {
       title: 'Pixel Art Studio',
       description:
         'Um editor moderno de pixel art com múltiplas funcionalidades, desenvolvido com HTML5, CSS3 e JavaScript puro.',
-      image: '/interactive-color-pallete.png',
+      image: '/interactive-color-palete.png',
       technologies: ['HTML', 'CSS3', 'javaScript'],
       github: 'https://github.com/RobotEby/Interactive-Color-Palette',
       demo: 'https://interactive-color-palette.vercel.app/',
+    },
+    {
+      title: 'Garin Team Consultoria',
+      description:
+        'Site de consultoria online inspirado pelo treinador Garin. Desenvolvido com React 19, TypeScript, TailwindCSS e Vite.',
+      image: '/garin-team.png',
+      technologies: ['React', 'TypeScript', 'TailwindCSS', 'Vite'],
+      github: 'https://github.com/RobotEby/garin-team-consulting',
+      demo: 'https://garin-team-consulting.netlify.app',
+    },
+    {
+      title: 'Portfólio fictício completo de segurança cibernética',
+      description:
+        'Este repositório apresenta um portfólio fictício desenvolvido para demonstrar minhas habilidades em desenvolvimento full-stack com foco em front-end.',
+      image: '/project-atlas.png',
+      technologies: ['React', 'TypeScript', 'TailwindCSS', 'Vite'],
+      github: 'https://github.com/RobotEby/project-atlas',
+      demo: 'https://cyber-ops.netlify.app',
     },
   ];
 

@@ -14,7 +14,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
     { id: 'about', label: 'Sobre', icon: User },
     { id: 'projects', label: 'Projetos', icon: FolderOpen },
     { id: 'services', label: 'Serviços', icon: Code },
-    { id: 'contact', label: 'Contato', icon: Mail },
+    { id: 'Contato', label: 'Contato', icon: Mail },
   ];
 
   useEffect(() => {

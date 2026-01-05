@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -15,7 +15,6 @@ const Projects = () => {
         'A CBAAP tem como foco transformar o marketing digital para pequenos negócios por meio de um modelo consultivo inovador. Através de reuniões estratégicas, a agência busca entender profundamente as necessidades e desejos de cada cliente. Ao combinar esse conhecimento com táticas avançadas de anúncios pagos, a CBAAP propõe soluções que não só atraem mais clientes, mas também potencializam o crescimento sustentável do negócio.',
       image: '/cbaap.png',
       technologies: ['vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
-      github: 'https://github.com/RobotEby/cbaap-369789',
       demo: 'https://cbaap.com.br',
     },
     {
@@ -31,7 +30,6 @@ const Projects = () => {
         'Tailwind CSS',
         'Vitest + React Testing Library',
       ],
-      github: 'https://github.com/RobotEby/recipe-app',
       demo: 'https://recipe-app-gamma-swart.vercel.app/',
     },
     {
@@ -40,7 +38,6 @@ const Projects = () => {
         'Site oficial do PanzerDiv (PzDiv), um clã especializado em operações com veículos blindados no simulador militar SQUAD. A aplicação apresenta uma plataforma moderna para recrutamento e divulgação das atividades do clã.',
       image: '/panzerdiv.png',
       technologies: ['React 18', 'TypeScript', 'Tailwind CSS', 'Vite'],
-      github: 'https://github.com/RobotEby/panzerdiv-squad-hub',
       demo: 'https://panzerdiv-squad-hub.vercel.app/',
     },
     {
@@ -49,7 +46,6 @@ const Projects = () => {
         'Um editor moderno de pixel art com múltiplas funcionalidades, desenvolvido com HTML5, CSS3 e JavaScript puro.',
       image: '/interactive-color-palete.png',
       technologies: ['HTML', 'CSS3', 'javaScript'],
-      github: 'https://github.com/RobotEby/Interactive-Color-Palette',
       demo: 'https://interactive-color-palette.vercel.app/',
     },
     {
@@ -58,7 +54,6 @@ const Projects = () => {
         'Site de consultoria online inspirado pelo treinador Garin. Desenvolvido com React 19, TypeScript, TailwindCSS e Vite.',
       image: '/garin-team.png',
       technologies: ['React', 'TypeScript', 'TailwindCSS', 'Vite'],
-      github: 'https://github.com/RobotEby/garin-team-consulting',
       demo: 'https://garin-team-consulting.netlify.app',
     },
     {
@@ -67,7 +62,6 @@ const Projects = () => {
         'Este repositório apresenta um portfólio fictício desenvolvido para demonstrar minhas habilidades em desenvolvimento full-stack com foco em front-end.',
       image: '/project-atlas.png',
       technologies: ['React', 'TypeScript', 'TailwindCSS', 'Vite'],
-      github: 'https://github.com/RobotEby/project-atlas',
       demo: 'https://cyber-ops.netlify.app',
     },
   ];
@@ -127,17 +121,6 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-3 mt-auto">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1"
-                  >
-                    <Button className="flex-1 gap-2 w-full">
-                      <Github className="w-4 h-4" />
-                      GitHub
-                    </Button>
-                  </a>
                   <a
                     href={project.demo}
                     target="_blank"

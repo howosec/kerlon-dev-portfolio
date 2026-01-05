@@ -39,7 +39,11 @@ const Hero = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/RobotEby', label: 'GitHub' },
-    { icon: Instagram, href: 'https://www.instagram.com/kerlonsl._', label: 'Instagram' },
+    {
+      icon: Linkedin,
+      href: 'https://www.linkedin.com/in/kerlon-amaral-297461312/',
+      label: 'LinkedIn',
+    },
   ];
 
   return (

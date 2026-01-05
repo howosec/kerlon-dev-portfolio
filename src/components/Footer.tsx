@@ -54,7 +54,7 @@ const Footer = () => {
 
           <div className="pt-8 border-t border-primary-foreground/20">
             <p className="text-sm text-primary-foreground/70">
-              &copy; {currentYear} made with 🤍 by RobotEby.
+              &copy; {currentYear} feito com 🤍 por RobotEby.
             </p>
           </div>
         </div>

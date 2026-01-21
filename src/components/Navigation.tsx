@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Home, User, FolderOpen, Code, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-scroll';
 
-interface NavigationProps {
-  activeSection: string;
-}
-
-const Navigation = ({ activeSection }: NavigationProps) => {
+const Navigation = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   const navItems = [
@@ -18,28 +15,11 @@ const Navigation = ({ activeSection }: NavigationProps) => {
   ];
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsVisible(window.innerWidth >= 768);
-    };
-
+    const handleResize = () => setIsVisible(window.innerWidth >= 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
-  };
 
   if (!isVisible) return null;
 
@@ -54,21 +34,13 @@ const Navigation = ({ activeSection }: NavigationProps) => {
         <ul className="flex gap-8 items-center">
           {navItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeSection === item.id;
 
             return (
               <li key={item.id}>
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
-                    isActive
-                      ? 'bg-primary text-primary-foreground'
-                      : 'hover:bg-muted text-foreground'
-                  }`}
-                >
+                <Link className="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 cursor-pointer hover:bg-muted text-foreground">
                   <Icon className="w-4 h-4" />
                   <span className="text-sm font-medium">{item.label}</span>
-                </button>
+                </Link>
               </li>
             );
           })}

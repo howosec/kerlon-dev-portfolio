@@ -10,11 +10,29 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'Movelaria On Demand',
+      description:
+        'Transforme seus ambientes com móveis sob medida, criados especialmente para você. Na Movelaria On Demand, cada peça é pensada para unir design moderno, funcionalidade e personalização.',
+      image: '/movelaria-on-demand.png',
+      technologies: [
+        'Vite',
+        'TypeScript',
+        'React',
+        'Shadcn-ui',
+        'Tailwind CSS',
+        'Docker',
+        'Docker Compose',
+        'Node.js',
+        'PostgreSQL',
+      ],
+      demo: 'https://movelaria-on-demand.vercel.app/',
+    },
+    {
       title: 'CBAAP',
       description:
         'A CBAAP tem como foco transformar o marketing digital para pequenos negócios por meio de um modelo consultivo inovador. Através de reuniões estratégicas, a agência busca entender profundamente as necessidades e desejos de cada cliente. Ao combinar esse conhecimento com táticas avançadas de anúncios pagos, a CBAAP propõe soluções que não só atraem mais clientes, mas também potencializam o crescimento sustentável do negócio.',
       image: '/cbaap.png',
-      technologies: ['vite', 'TypeScript', 'React', 'shadcn-ui', 'Tailwind CSS'],
+      technologies: ['Vite', 'TypeScript', 'React', 'Shadcn-ui', 'Tailwind CSS'],
       demo: 'https://cbaap.com.br',
     },
     {

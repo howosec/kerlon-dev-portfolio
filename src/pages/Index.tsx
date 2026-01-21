@@ -15,7 +15,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'services', 'contact'];
+      const sections = ['home', 'about', 'projects', 'services', 'Contact'];
       const scrollPosition = window.scrollY + 150;
 
       for (const section of sections) {
